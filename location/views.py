@@ -4,6 +4,7 @@ from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import Context, loader
 from django.views import generic
+from location.models import Location
 import os
 import os.path
 
@@ -11,4 +12,12 @@ def index(request):
     #entries = Item.objects.all()     
     #t = loader.get_template(os.path.join(os.path.dirname(__file__),'templates/index.html'))
     #return HttpResponse(t.render())
-    return render_to_response(os.path.join(os.path.dirname(__file__),'templates/leaflet_sample.html'), locals())
+    #return render_to_response(os.path.join(os.path.dirname(__file__),'templates/leaflet_sample.html'), locals())    
+    locations = Location.objects.all()    
+    t = loader.get_template(os.path.join(os.path.dirname(__file__),'templates/index2.html'))    
+    c = Context({
+        'location_list': locations,
+    })
+    print 'LOCATIONS ***************'
+    return HttpResponse(t.render(c))
+    #return render_to_response(os.path.join(os.path.dirname(__file__),'templates/index2.html'), locals())
