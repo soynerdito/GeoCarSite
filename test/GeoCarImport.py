@@ -42,9 +42,8 @@ class GeoCarImport(object):
 		time = self.data_split[self.GPRMC_TIME]		
 		#{"timeUTC": ["Datetime has wrong format. Use one of these formats instead: YYYY-
 #MM-DDThh:mm[:ss[.uuuuuu]][+HHMM|-HHMM|Z]"]}
-
-		return '20{0}-{1}-{2}T{3}:{4}:{5}'.format(date[4:6],date[0:2],date[2:4],
-			time[0:2],time[2:4],time[4:] )
+		return '20{0}-{1}-{2}T{3}:{4}:{5}'.format(date[4:6],date[2:4],date[0:2],
+			time[0:2],time[2:4],time[4] )
 			#time[0:2],time[2:4],time[4:6], str(int(float(time[6:])*100)) )
 		
 	def cast_raw_coord(self, coord, cardinal ):

@@ -23,23 +23,37 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>	
 	<script>
 
-		var map = L.map('map').setView([52.505, -0.09], 6);
+		var map = L.map('map').setView([18.2500, -66.5000], 10);
 
 		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
 		}).addTo(map);
 
-		{% if location_list %}
-		<!-- <ul class="object-tools"> -->		
-		{% for location in location_list %}
-			L.marker([{{ location.latitude }}, {{ location.longtitude }}]).addTo(map)
-			.bindPopup("<b> Lat: {{ location.latitude | safe }} , Long: {{ location.longtitude | safe }}</b><br />{{ location.timeUTC | safe }}");
+		<!-- {% if location_list %}		>
+		<!-- {% for location in location_list %} >
+		<!-- 	L.marker([{{ location.latitude }}, {{ location.longtitude }}]).addTo(map) >
+		<!-- 	.bindPopup("<b> Lat: {{ location.latitude | safe }} , Long: {{ location.longtitude | safe }}</b><br />{{ location.timeUTC | safe }}"); >
 			
-		{% endfor %}		
-		{% endif %}    
-
+		<!-- {% endfor %}>
+		<!-- {% endif %}>		
 		
+		{% if location_list %}		
+		var point, route, points = [];
+
+		{% for location in location_list %}				
+			point = new L.LatLng({{ location.latitude }}, {{ location.longtitude }}); 
+			points.push(point);	
+		{% endfor %}
+		
+		route= new L.Polyline(points, {
+			weight: 3,
+			opacity: 0.5,
+			smoothFactor: 1
+		}).addTo(map);
+		
+		route.bringToFront();
+		{% endif %}
 		<!--var popup = L.popup(); -->
 
 
