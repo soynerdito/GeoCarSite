@@ -1,3 +1,5 @@
+**/venv
+**/venv/*
 **/test/GPS.txt
 **/psoctracker/tracker.sqlite
 **/psoctracker/tracker.sqlite-journal
