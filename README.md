@@ -1,4 +1,4 @@
-PSoC Tracker
+GeoCar - PSoC Tracker
 ===========
 ![Alt text](/ext/GeocarLogo.jpg?raw=true)
 
