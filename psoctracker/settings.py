@@ -138,8 +138,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',        
-    'django.contrib.admin',
-    #'leaflet',
+    'django.contrib.admin',    
+    'bootstrap_toolkit',
     'location',
     'rest_framework',  
     # Uncomment the next line to enable admin documentation:
