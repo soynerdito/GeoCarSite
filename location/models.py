@@ -27,3 +27,16 @@ class Location( models.Model ):
     class Meta:
         verbose_name = "Location"
         verbose_name_plural = "Locations"
+
+
+class PSoCMessage( models.Model ):
+    token = models.CharField(max_length=50)
+    raw_data = models.CharField(max_length=200)
+    
+    def __unicode__( self ):
+        return '%s' % ( self.raw_data )
+
+    class Meta:
+        verbose_name = "PSoCMessage"
+        verbose_name_plural = "PSoCMessages"
+

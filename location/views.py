@@ -21,3 +21,17 @@ def index(request):
     print 'LOCATIONS ***************'
     return HttpResponse(t.render(c))
     #return render_to_response(os.path.join(os.path.dirname(__file__),'templates/index2.html'), locals())
+
+
+def video_player(request, token, raw_data=None ):
+    print 'Video Player'
+    print token
+    
+    print raw_data
+    locations = Location.objects.all()    
+    t = loader.get_template(os.path.join(os.path.dirname(__file__),'templates/index2.html'))    
+    c = Context({
+        'location_list': locations,
+    })
+    print 'LOCATIONS ***************'
+    return HttpResponse(t.render(c))
