@@ -1,6 +1,6 @@
 GeoCar - PSoC Tracker
 ===========
-![Alt text](/ext/Geocar2.jpg?raw=true)
+![Alt text](/ext/Geocar2-sm.jpg?raw=true)
 
 Plotting data from psoc and gps into a map
 
