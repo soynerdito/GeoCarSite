@@ -22,11 +22,13 @@ router.register(r'psocmessage', PSoCMessageViewSet)
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^', include(router.urls)),
-    url(r'^test', 'location.views.index', name="home"),
+urlpatterns = patterns('',    
+	url(r'^admin', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^test', 'location.views.index', name="home2"),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^partner/(?P<token>[-\w]+)/(?P<raw_data>\w+)/$', 'location.views.video_player'),
+    url(r'^', 'location.views.home', name="home"),
 #PSoCMessage
     #url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
     #url(r'^form$', 'demo_app.views.demo_form'),
@@ -38,7 +40,6 @@ urlpatterns = patterns('',
     #url(r'^widgets$', 'demo_app.views.demo_widgets', {}, "widgets"),
     #url(r'^buttons$', TemplateView.as_view(template_name='buttons.html'), name="buttons"),
     
-
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    
 )

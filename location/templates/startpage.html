@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load bootstrap_toolkit %}
+{% load i18n %}
+{% block content %}    
+
+    <div class="row">    
+        <div class="jumbotron">
+        <h1>Trip List</h1>
+        </div>
+    </div>
+    {% if event_list %}
+    <!-- <ul class="object-tools"> -->
+    <table class="table">
+   
+    </table>
+    {% else %}
+    <p>No Items are available.</p>
+    {% endif %}    
+    </div>
+    
+    <!--{% bootstrap_button 'Check out' icon='icon-search' url='wakka' %}-->
+    <a href="/test">
+    <button type="submit" class="btn btn-primary">
+      <i class="icon-user icon-white"></i> Show the Map
+    </button>
+    </a>
+
+{% endblock%}

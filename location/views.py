@@ -23,6 +23,10 @@ def index(request):
     #return render_to_response(os.path.join(os.path.dirname(__file__),'templates/index2.html'), locals())
 
 
+def home(request):
+    t = loader.get_template(os.path.join(os.path.dirname(__file__),'templates/startpage.html'))        
+    return HttpResponse(t.render( Context() ))
+
 def video_player(request, token, raw_data=None ):
     print 'Video Player'
     print token
